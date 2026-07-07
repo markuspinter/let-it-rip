@@ -11,13 +11,14 @@ dependencies = [
     "plotly>=5.0.0",
     "datasets>=3.0.0",
     "pillow>=12.3.0",
+    "optax>=0.2.0",
 ]
 
 [tool.ruff.lint]
 ignore = ["F722"]  # jaxtyping shape strings are intentionally not valid Python expressions
 
 [tool.ruff.lint.per-file-ignores]
-"**/*.ipynb" = ["F811"]  # stub cells are intentionally redefined by solution cells
+"**/*.ipynb" = ["F811", "F821", "F841"]  # stub cells redefine names; cross-cell refs and unused stubs are expected
 
 [dependency-groups]
 dev = [
