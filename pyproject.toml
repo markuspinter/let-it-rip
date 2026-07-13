@@ -12,13 +12,16 @@ dependencies = [
     "datasets>=3.0.0",
     "pillow>=12.3.0",
     "optax>=0.2.0",
+    "flax>=0.10.0",
+    "diffusers>=0.30",
+    "torch>=2.13.0",
 ]
 
 [tool.ruff.lint]
 ignore = ["F722"]  # jaxtyping shape strings are intentionally not valid Python expressions
 
 [tool.ruff.lint.per-file-ignores]
-"**/*.ipynb" = ["F811", "F821", "F841"]  # stub cells redefine names; cross-cell refs and unused stubs are expected
+"**/*.ipynb" = ["F811", "F821", "F841", "E402"]  # stub cells redefine names; cross-cell refs and unused stubs are expected; sys.path setup precedes imports
 
 [dependency-groups]
 dev = [
